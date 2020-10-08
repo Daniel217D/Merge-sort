@@ -12,8 +12,10 @@ void merge_sort_rec(int* array, unsigned int left, unsigned int right) {
             swap(array[left], array[right]);
         }
     } else {
-        merge_sort_rec(array, left, left + (right - left) / 2);
-        merge_sort_rec(array, left + (right - left) / 2 + 1, right);
+        unsigned int middle = left + (right - left) / 2;
+        
+        merge_sort_rec(array, left, middle);
+        merge_sort_rec(array, middle + 1, right);
     }
 }
 
